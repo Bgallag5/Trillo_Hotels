@@ -1,0 +1,549 @@
+/*
+COLORS
+
+Primary: #eb2f64
+Primary light: #FF3366
+Primary dark: #BA265D
+
+Grey light 1: #faf9f9
+Grey light 2: #f4f2f2
+Grey light 3: #f0eeee
+Grey light 4: #ccc
+
+Grey dark 1: #333
+Grey dark 2: #777
+Grey dark 3: #999
+
+*/
+.container {
+  max-width: 120rem;
+  margin: 5rem auto;
+  background-color: #faf9f9;
+  box-shadow: 0rem 2rem 3rem rgba(0, 0, 0, 0.1);
+  min-height: 50rem;
+}
+
+.header {
+  height: 7rem;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f4f2f2;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  flex: 0 0 20%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.hotel {
+  background-color: orangered;
+  flex: 1;
+}
+
+/*
+flex: 0 0 25%;
+flex: flex-grow, flex-shrink, flex-basis;
+
+flex-grow: 0 - do not grow to fill whitespace, 1 - grow
+flex-shrik: 0 - do not shrink 
+flex-basis: the width/height of the element
+
+With these lines only we create a row where the sidebar takes up 20% of the parent width...
+...and the hotel will grow to fill all the remaining space on that row
+.content{
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar{
+    flex: 0 0 20%;
+}
+
+.hotel{
+    flex: 1;
+}
+
+*/
+/* clean CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+}
+
+/*
+ html sets the rem 
+ we want to set the default font size as a percent for usability 
+ default browser font-size is 16px, so 62.5% === 10px, and now 1rem = 10px
+*/
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, #eb2f64, #FF3366);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header {
+  font-size: 1.4rem;
+}
+.header__logo {
+  height: 3.25rem;
+  margin-left: 2rem;
+}
+
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.search__input {
+  font-family: inherit;
+  font-size: 1.4rem;
+  color: inherit;
+  background-color: #f4f2f2;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 100px;
+  width: 90%;
+  transition: all 0.2s;
+  margin-right: -3.25rem;
+}
+.search__input:focus {
+  outline: none;
+  width: 100%;
+  background-color: #f0eeee;
+}
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #999;
+}
+.search__input:focus + .search__button {
+  background-color: #f0eeee;
+}
+.search__button {
+  border: none;
+  background-color: #f4f2f2;
+}
+.search__button:focus {
+  outline: none;
+}
+.search__button:active {
+  transform: translateY(2px);
+}
+.search__icon {
+  font-size: 1.6rem;
+  color: #999;
+}
+
+.nav {
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.nav > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 1.5rem;
+  cursor: pointer;
+}
+.nav > *:hover {
+  background-color: #f0eeee;
+}
+.nav__icon {
+  color: #777;
+  font-size: 2rem;
+}
+.nav__user {
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav__user--img {
+  height: 5rem;
+  width: auto;
+  border-radius: 100px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 2rem;
+  width: 100%;
+}
+.sidebar__item {
+  padding-left: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: white;
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar__item--name {
+  z-index: 2;
+}
+.sidebar__item--icon {
+  z-index: 2;
+}
+.sidebar__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #eb2f64;
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+}
+.sidebar__item:hover::before {
+  transform: translateX(0);
+  animation: growSlide 0.5s ease-in;
+  height: 100%;
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+}
+.sidebar__item:active::before {
+  background-color: #FF3366;
+}
+.sidebar__item:active {
+  background-color: green;
+}
+
+@keyframes growSlide {
+  0% {
+    top: 50%;
+    height: 1px;
+    transform: translateX(-100%);
+  }
+  50% {
+    top: 0;
+    height: 100%;
+    transform: translateX(-97%);
+  }
+  75% {
+    transform: translateX(-85%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.hotel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.hotel__images {
+  height: 20rem;
+  display: flex;
+  flex-direction: row;
+}
+.hotel__images .img-container {
+  flex: 1;
+  background-size: cover;
+}
+.hotel__images--img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.hotel__titlebar {
+  padding-left: 2rem;
+  height: 8rem;
+  background-color: #faf9f9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hotel__titlebar .titlebar__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.5rem;
+  height: 100%;
+  flex: 0 0 auto;
+}
+.hotel__titlebar .titlebar__container > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hotel__titlebar .titlebar--name {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+}
+.hotel__titlebar .titlebar--stars {
+  gap: 0.2rem;
+  color: #FF3366;
+  font-size: 1.4rem;
+}
+.hotel__titlebar .titlebar--location {
+  flex: 1;
+  white-space: nowrap;
+  gap: 1rem;
+}
+.hotel__titlebar .titlebar--rating {
+  font-size: 2rem;
+  height: 100%;
+  width: 8rem;
+  background-color: #FF3366;
+}
+.hotel__content {
+  height: 80vh;
+  background-color: #f4f2f2;
+  display: flex;
+  flex-direction: row;
+}
+.hotel__content > * {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  color: #777;
+  font-size: 1.4rem;
+}
+.hotel__content--left {
+  flex: 1;
+}
+.hotel__content--left .hotel-info {
+  height: 100%;
+  width: 95%;
+  background-color: #faf9f9;
+  box-shadow: 0px 2rem 4rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hotel__content--left .hotel-info > * {
+  flex: 1;
+  width: 100%;
+}
+.hotel__content--left .hotel-info > *:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+.hotel__content--left .hotel-info .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+}
+.hotel__content--left .hotel-info .features {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.hotel__content--left .hotel-info .features__list {
+  list-style: none;
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 2rem;
+}
+.hotel__content--left .hotel-info .features__list--item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  color: #eb2f64;
+}
+.hotel__content--left .hotel-info .features__list--item p {
+  color: #777;
+}
+.hotel__content--left .hotel-info .recommends {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 0 0 20%;
+}
+.hotel__content--left .hotel-info .recommends p {
+  flex: 1;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+.hotel__content--left .hotel-info .recommends__users {
+  flex: 0 0 25%;
+}
+.hotel__content--left .hotel-info .recommends__users--user {
+  border-radius: 100px;
+  height: 5rem;
+  width: 5rem;
+}
+.hotel__content--right {
+  flex: 0 0 40%;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+.hotel__content--right .review {
+  min-height: 35%;
+  height: auto;
+  width: 95%;
+  background-color: #faf9f9;
+  box-shadow: 0px 2rem 3rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+.hotel__content--right .review > * {
+  padding: 1rem;
+}
+.hotel__content--right .review__review {
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  padding: 2rem;
+}
+.hotel__content--right .review__user {
+  flex: 0 0 6rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.hotel__content--right .review__user--img {
+  border-radius: 100px;
+  height: 5rem;
+  width: 5rem;
+  margin-left: 3rem;
+}
+.hotel__content--right .review__user--namedate {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+}
+.hotel__content--right .review__user--namedate .namedate--date {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #999;
+}
+.hotel__content--right .review__user--rating {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 2rem;
+  color: #eb2f64;
+  margin-right: 2rem;
+}
+.hotel__content--right .all-reviews {
+  color: #eb2f64;
+  background: none;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid #eb2f64;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+.hotel__content--right .all-reviews:hover {
+  background-color: #eb2f64;
+  color: white;
+}
+.hotel__content--right .all-reviews:active {
+  transform: translateY(2px);
+}
+
+.hotel__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  height: 20rem;
+  background-color: #faf9f9;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.footer--btn {
+  font-size: 1.6rem;
+  height: 6rem;
+  width: 20rem;
+  border-radius: 100px;
+  border: none;
+  background: linear-gradient(to right, #BA265D, #FF3366);
+  color: white;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.footer--btn .footer--btn--text::before {
+  content: "Only 4 rooms left";
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-150px);
+  transition: all 0.5s;
+}
+.footer--btn:hover {
+  background: linear-gradient(to left, #BA265D, #FF3366);
+}
+.footer--btn:hover .footer--btn--text {
+  transform: translateY(100px);
+  transition: all 0.5s;
+}
+.footer--btn:hover .footer--btn--text::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-100px);
+  transition: all 0.5s;
+}
+.footer--btn:active {
+  transform: translateY(4px);
+}
+
+/*# sourceMappingURL=style.css.map */

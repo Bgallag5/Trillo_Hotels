@@ -1,0 +1,64 @@
+.container{
+    max-width: 120rem;
+    margin: 5rem auto;
+    background-color: $grey-light-1;
+    box-shadow: $shadow-regular;
+    min-height: 50rem;
+}
+
+.header{
+    height: 7rem;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $grey-light-2;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    // border: 1px solid green;
+}
+
+.sidebar{
+    flex: 0 0 20%;
+    background-color: $grey-dark-1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.hotel{
+    background-color: orangered;
+    //flex: 1; - element grows as much as it can 
+    flex: 1;
+}
+
+
+
+/*
+flex: 0 0 25%;
+flex: flex-grow, flex-shrink, flex-basis;
+
+flex-grow: 0 - do not grow to fill whitespace, 1 - grow
+flex-shrik: 0 - do not shrink 
+flex-basis: the width/height of the element
+
+With these lines only we create a row where the sidebar takes up 20% of the parent width...
+...and the hotel will grow to fill all the remaining space on that row
+.content{
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar{
+    flex: 0 0 20%;
+}
+
+.hotel{
+    flex: 1;
+}
+
+*/
