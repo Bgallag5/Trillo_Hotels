@@ -1,29 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import HotelView from "./components/HotelView";
+import Spinner from "./components/Spinner";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  //on load, wait 1 sec then setLoading(false)
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <>
-    <div className="container">
-      <Header />
-      <div className="content">
-        <Sidebar />
-        <HotelView />
-      </div>
-    </div>
-      <div className="loader-container">
-      <div className="loader">
-        <div className="face face-1">
-          <div className="circle"></div>
-        </div>
-        <div className="face face-2">
-          <div className="circle"></div>
+      <div className="container">
+        <Header />
+        <div className="content">
+          <Sidebar />
+          {loading ? (
+            <Spinner />
+          ) : (
+            <HotelView />
+          )}
         </div>
       </div>
-      </div>
-      </>
+    </>
   );
 }
 
