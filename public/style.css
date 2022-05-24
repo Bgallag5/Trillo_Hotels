@@ -247,9 +247,6 @@ body {
 .sidebar__item:active::before {
   background-color: #FF3366;
 }
-.sidebar__item:active {
-  background-color: green;
-}
 
 @keyframes growSlide {
   0% {
