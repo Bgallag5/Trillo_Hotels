@@ -120,6 +120,16 @@ export default function HotelView() {
                   alt=""
                   className="recommends__users--user"
                 />
+                <img
+                  src={require("../images/user-3.jpg")}
+                  alt=""
+                  className="recommends__users--user"
+                />
+                <img
+                  src={require("../images/user-3.jpg")}
+                  alt=""
+                  className="recommends__users--user"
+                />
               </div>
             </div>
           </div>

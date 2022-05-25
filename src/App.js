@@ -7,7 +7,7 @@ import Spinner from "./components/Spinner";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  //on load, wait 1 sec then setLoading(false)
+  //time delay to show loading animation
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);

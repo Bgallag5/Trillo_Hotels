@@ -2,7 +2,7 @@
   height: 100vh;
   width: 100vw;
   position: relative;
-  background: rgb(14, 13, 21);
+  background: $grey-light-1;
 }
 
 .loader {
@@ -17,7 +17,7 @@
 
 .face {
   position: absolute;
-  border: 1px solid #121212;
+  border: 1px solid rgba($grey-light-4, 1);
 }
 
 .face-1 {
@@ -25,17 +25,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgb(14, 13, 21);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  background: $grey-light-1;
+  box-shadow: 0 0 10px rgba($grey-light-4, 1);
   border-radius: 50%;
-  border-left: 2px solid #ffff00;
-  border-top: 2px solid #ffff00;
+  border-left: 2px solid $color-primary--dark;
+  border-top: 2px solid $color-primary--dark;
   animation: circle 2s linear infinite;
 
   .circle::before {
-    background: #ffff00;
-    box-shadow: 0 0 20px #ff0, 0 0 40px #ff0, 0 0 60px #ff0, 0 0 80px #ff0,
-      0 0 100px #ff0, 0 0 5px rgba(255, 255, 0, 0.1);
+    background: $color-primary--dark;
+    box-shadow: 0 0 20px $color-primary--light, 0 0 40px $color-primary--light, 0 0 60px $color-primary--light, 0 0 80px $color-primary--light,
+      0 0 100px $color-primary--light, 0 0 5px rgba(255, 255, 0, 0.1);
   }
 }
 
@@ -44,17 +44,17 @@
   left: 25px;
   right: 25px;
   bottom: 25px;
-  background: rgb(14, 13, 21);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  background: $grey-light-1;
+  box-shadow: 0 0 10px rgba($grey-light-4, 1);
   border-radius: 50%;
-  border-right: 2px solid #03a9f4;
-  border-bottom: 2px solid #03a9f4;
-  animation: circle2 3s linear infinite;
+  border-right: 2px solid $color-primary--light;
+  border-bottom: 2px solid $color-primary--light;
+  animation: circle2 2s linear infinite;
 
   .circle::before {
-    background: #03a9f4;
-    box-shadow: 0 0 20px #03a9f4, 0 0 40px #03a9f4, 0 0 60px #03a9f4,
-      0 0 80px #03a9f4, 0 0 100px #03a9f4, 0 0 5px rgba(3, 169, 244, 0.1);
+    background: $color-primary--light;
+    box-shadow: 0 0 20px $color-primary--dark, 0 0 40px $color-primary--dark, 0 0 60px $color-primary--dark,
+      0 0 80px $color-primary--dark, 0 0 100px $color-primary--dark, 0 0 5px rgba(3, 169, 244, 0.1);
   }
 }
 
@@ -64,7 +64,6 @@
   left: 50%;
   width: 50%;
   height: 2px;
-  //   background: #fff;
   transform-origin: left;
 
   &::before {

@@ -407,11 +407,17 @@ body {
 }
 .hotel__content--left .hotel-info .recommends__users {
   flex: 0 0 25%;
+  display: flex;
+  margin-right: 2rem;
 }
 .hotel__content--left .hotel-info .recommends__users--user {
   border-radius: 100px;
   height: 5rem;
   width: 5rem;
+  box-sizing: content-box;
+}
+.hotel__content--left .hotel-info .recommends__users--user:not(:last-child) {
+  margin-right: -2rem;
 }
 .hotel__content--right {
   flex: 0 0 40%;
@@ -547,7 +553,7 @@ body {
   height: 100vh;
   width: 100vw;
   position: relative;
-  background: rgb(14, 13, 21);
+  background: #faf9f9;
 }
 
 .loader {
@@ -562,7 +568,7 @@ body {
 
 .face {
   position: absolute;
-  border: 1px solid #121212;
+  border: 1px solid #cccccc;
 }
 
 .face-1 {
@@ -570,16 +576,16 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgb(14, 13, 21);
-  box-shadow: 0 0 10px rgb(0, 0, 0);
+  background: #faf9f9;
+  box-shadow: 0 0 10px #cccccc;
   border-radius: 50%;
-  border-left: 2px solid #ffff00;
-  border-top: 2px solid #ffff00;
+  border-left: 2px solid #BA265D;
+  border-top: 2px solid #BA265D;
   animation: circle 2s linear infinite;
 }
 .face-1 .circle::before {
-  background: #ffff00;
-  box-shadow: 0 0 20px #ff0, 0 0 40px #ff0, 0 0 60px #ff0, 0 0 80px #ff0, 0 0 100px #ff0, 0 0 5px rgba(255, 255, 0, 0.1);
+  background: #BA265D;
+  box-shadow: 0 0 20px #FF3366, 0 0 40px #FF3366, 0 0 60px #FF3366, 0 0 80px #FF3366, 0 0 100px #FF3366, 0 0 5px rgba(255, 255, 0, 0.1);
 }
 
 .face-2 {
@@ -587,16 +593,16 @@ body {
   left: 25px;
   right: 25px;
   bottom: 25px;
-  background: rgb(14, 13, 21);
-  box-shadow: 0 0 10px rgb(0, 0, 0);
+  background: #faf9f9;
+  box-shadow: 0 0 10px #cccccc;
   border-radius: 50%;
-  border-right: 2px solid #03a9f4;
-  border-bottom: 2px solid #03a9f4;
-  animation: circle2 3s linear infinite;
+  border-right: 2px solid #FF3366;
+  border-bottom: 2px solid #FF3366;
+  animation: circle2 2s linear infinite;
 }
 .face-2 .circle::before {
-  background: #03a9f4;
-  box-shadow: 0 0 20px #03a9f4, 0 0 40px #03a9f4, 0 0 60px #03a9f4, 0 0 80px #03a9f4, 0 0 100px #03a9f4, 0 0 5px rgba(3, 169, 244, 0.1);
+  background: #FF3366;
+  box-shadow: 0 0 20px #BA265D, 0 0 40px #BA265D, 0 0 60px #BA265D, 0 0 80px #BA265D, 0 0 100px #BA265D, 0 0 5px rgba(3, 169, 244, 0.1);
 }
 
 .circle {
