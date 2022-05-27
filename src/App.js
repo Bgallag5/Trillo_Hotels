@@ -32,3 +32,9 @@ function App() {
 }
 
 export default App;
+
+
+
+module.export = () => {
+
+}

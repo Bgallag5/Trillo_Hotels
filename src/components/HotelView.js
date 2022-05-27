@@ -1,4 +1,5 @@
 import React from "react";
+import PhotoGallery from "./PhotoGallery";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
@@ -8,14 +9,23 @@ import {
 // import { faCoffee } from '@fortawesome/free-regular-svg-icons';
 
 export default function HotelView() {
+
+
+  const toggleGallery = () => {
+    let gallery = document.querySelector('.gallery');
+    gallery.classList.toggle('hidden');
+  }
+
   return (
     <main className="hotel">
+      <PhotoGallery />
       <div className="hotel__images">
         <div className="img-container">
           <img
             src={require("../images/hotel-1.jpg")}
             alt=""
             className="hotel__images--img"
+            onClick={toggleGallery}
           />
         </div>
         <div className="img-container">
@@ -23,6 +33,7 @@ export default function HotelView() {
             src={require("../images/hotel-2.jpg")}
             alt=""
             className="hotel__images--img"
+            onClick={toggleGallery}
           />
         </div>
         <div className="img-container">
@@ -30,6 +41,7 @@ export default function HotelView() {
             src={require("../images/hotel-3.jpg")}
             alt=""
             className="hotel__images--img"
+            onClick={toggleGallery}
           />
         </div>
       </div>

@@ -47,7 +47,7 @@ Grey dark 3: #999
 }
 
 .hotel {
-  background-color: orangered;
+  background-color: #faf9f9;
   flex: 1;
 }
 
@@ -107,6 +107,10 @@ body {
   background-image: linear-gradient(to bottom right, #eb2f64, #FF3366);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .header {
@@ -647,6 +651,24 @@ body {
   100% {
     transform: rotate(-360deg);
   }
+}
+.gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.photos {
+  height: 400px;
+  width: 600px;
+  background-color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
