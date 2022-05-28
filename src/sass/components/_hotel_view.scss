@@ -2,20 +2,27 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: auto;
 
   &__images {
     height: 20rem;
     display: flex;
     flex-direction: row;
 
+    @include respond(phone){
+        height: auto;
+    }
+
     .img-container {
       flex: 1;
       background-size: cover;
+
+
     }
 
     &--img {
       object-fit: cover;
-      height: 100%;
+      height: auto;
       width: 100%;
     }
   }
@@ -29,6 +36,23 @@
     justify-content: space-between;
     align-items: center;
 
+    @include respond(phone){
+      width: 100%;
+    }
+
+    @include respond(small_phone){
+      flex-direction: column;
+      height: 15rem;
+      justify-content: center;
+    }
+
+    #hotel--name{
+      @include respond(phone){
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+
     .titlebar__container{
         display: flex;
         flex-direction: row;
@@ -38,6 +62,11 @@
         font-size: 1.5rem;
         height: 100%;
         flex: 0 0 auto;
+
+        @include respond(small_phone){
+          height: 8rem;
+          gap: 2rem;
+        }
 
         & > * {
             display: flex;
@@ -71,6 +100,11 @@
         height: 100%;
         width: 8rem;
         background-color: $color-primary--light;
+
+        // @include respond(phone){
+        //   flex-shrink: 1;
+        //   width: auto;
+        // }
     }
   }
 
@@ -79,6 +113,11 @@
     background-color: $grey-light-2;
     display: flex;
     flex-direction: row;
+
+    @include respond(phone){
+        flex-direction: column;
+        height: auto;
+    }
 
     & > * {
         height: 100%;
@@ -89,10 +128,15 @@
         padding: 3rem 1rem;
         color: $grey-dark-2;
         font-size: 1.4rem;
+
+        @include respond(phone){
+          padding: 3rem 3rem;
+        }
     }
 
     &--left{
         flex: 1;
+
 
         .hotel-info{
             height: 100%;
@@ -106,6 +150,7 @@
             & > *{
               flex: 1;
               width: 100%;
+              padding: 2rem 1rem;
             }
             & > *:not(:last-child) {
               border-bottom: 1px solid $grey-light-4;
@@ -131,6 +176,13 @@
                 flex-direction: column;
                 justify-content: space-around;
                 margin-left: 2rem;
+
+                @include respond (small_phone){
+                  // flex: 1;
+                  font-size: 1.1rem;
+                  height: auto;
+                  flex: 0 1 100%;
+                }
 
                 &--item{
                   display: flex;
@@ -185,6 +237,7 @@
         justify-content: flex-start;
         gap: 2rem;
         position: relative;
+        height: auto;
 
         .review{
             min-height: 35%;
@@ -254,9 +307,10 @@
           border-bottom: 1px solid $color-primary;
           cursor: pointer;
           margin-top: 2rem;
-          // position: absolute;
-          // bottom: 0;
-          // margin-bottom: 3rem;
+
+          @include respond(phone){
+            margin: 3rem;
+          }
 
           &:hover{
             // transform: scale(1.1);

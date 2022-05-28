@@ -46,7 +46,7 @@ export default function HotelView() {
         </div>
       </div>
       <div className="hotel__titlebar">
-        <div className="titlebar__container">
+        <div id="hotel--name" className="titlebar__container">
           <h2 className="titlebar--name">Grand Budapest</h2>
           <span className="titlebar--stars">
             <FontAwesomeIcon icon={faStar} />
