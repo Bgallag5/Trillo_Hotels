@@ -8,7 +8,7 @@
     height: auto;
     display: flex;
     flex-direction: row;
-    // z-index: 2;
+    z-index: 2;
 
     @include respond(phone){
         height: auto;
@@ -30,12 +30,12 @@
   &__titlebar {
     padding-left: 2rem;
     height: 8rem;
-    // height: 110%;
     background-color: $grey-light-1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    // overflow-y: hidden;
     transform: translateY(-6px);
 
     @include respond(phone){
@@ -91,7 +91,6 @@
     }
 
     .titlebar--location{
-        // width: 50rem;
         flex: 1;
         white-space: nowrap;
         gap: 1rem;
@@ -99,15 +98,14 @@
 
     .titlebar--rating{
         font-size: 2rem;
-        height: 100%;
+        height: 150%;
+        z-index: -1;
         width: 8rem;
         background-color: $color-primary--light;
-        // transform: ;
 
-        // @include respond(phone){
-        //   flex-shrink: 1;
-        //   width: auto;
-        // }
+        @include respond(phone){
+          height: 100%;
+        }
     }
   }
 
@@ -116,6 +114,7 @@
     background-color: $grey-light-2;
     display: flex;
     flex-direction: row;
+    z-index: 1;
 
     @include respond(phone){
         flex-direction: column;

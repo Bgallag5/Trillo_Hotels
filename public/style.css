@@ -312,6 +312,7 @@ body {
   height: auto;
   display: flex;
   flex-direction: row;
+  z-index: 2;
 }
 @media only screen and (max-width: 600px) {
   .hotel__images {
@@ -393,15 +394,22 @@ body {
 }
 .hotel__titlebar .titlebar--rating {
   font-size: 2rem;
-  height: 100%;
+  height: 150%;
+  z-index: -1;
   width: 8rem;
   background-color: #FF3366;
+}
+@media only screen and (max-width: 600px) {
+  .hotel__titlebar .titlebar--rating {
+    height: 100%;
+  }
 }
 .hotel__content {
   height: 80vh;
   background-color: #f4f2f2;
   display: flex;
   flex-direction: row;
+  z-index: 1;
 }
 @media only screen and (max-width: 600px) {
   .hotel__content {
