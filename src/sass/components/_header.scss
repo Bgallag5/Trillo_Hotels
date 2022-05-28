@@ -80,6 +80,7 @@
 
     @include respond(small_phone){
       padding: 0 .5rem;
+      //
     }
 
     &:hover {
