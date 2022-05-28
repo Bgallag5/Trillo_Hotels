@@ -24,11 +24,9 @@
 .content{
     display: flex;
     flex-direction: row;
-    // border: 1px solid green;
 
     @include respond (phone){
         flex-direction: column;
-
     }
 }
 

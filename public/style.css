@@ -304,7 +304,7 @@ body {
   height: auto;
 }
 .hotel__images {
-  height: 20rem;
+  height: auto;
   display: flex;
   flex-direction: row;
 }
@@ -314,8 +314,8 @@ body {
   }
 }
 .hotel__images .img-container {
-  flex: 1;
   background-size: cover;
+  height: auto;
 }
 .hotel__images--img {
   object-fit: cover;
@@ -330,6 +330,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  transform: translateY(-6px);
 }
 @media only screen and (max-width: 600px) {
   .hotel__titlebar {
@@ -505,7 +506,6 @@ body {
   justify-content: flex-start;
   gap: 2rem;
   position: relative;
-  height: auto;
 }
 .hotel__content--right .review {
   min-height: 35%;
