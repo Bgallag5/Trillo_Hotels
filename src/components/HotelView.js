@@ -6,15 +6,14 @@ import {
   faStar,
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
-// import { faCoffee } from '@fortawesome/free-regular-svg-icons';
 
 export default function HotelView() {
 
 
-  const toggleGallery = () => {
-    let gallery = document.querySelector('.gallery');
-    gallery.classList.toggle('hidden');
-  }
+  // const toggleGallery = () => {
+  //   let gallery = document.querySelector('.gallery');
+  //   gallery.classList.toggle('hidden');
+  // }
 
   return (
     <main className="hotel">
@@ -25,7 +24,7 @@ export default function HotelView() {
             src={require("../images/hotel-1.jpg")}
             alt=""
             className="hotel__images--img"
-            onClick={toggleGallery}
+            // onClick={toggleGallery}
           />
         </div>
         <div className="img-container">
@@ -33,7 +32,7 @@ export default function HotelView() {
             src={require("../images/hotel-2.jpg")}
             alt=""
             className="hotel__images--img"
-            onClick={toggleGallery}
+            // onClick={toggleGallery}
           />
         </div>
         <div className="img-container">
@@ -41,7 +40,7 @@ export default function HotelView() {
             src={require("../images/hotel-3.jpg")}
             alt=""
             className="hotel__images--img"
-            onClick={toggleGallery}
+            // onClick={toggleGallery}
           />
         </div>
       </div>
